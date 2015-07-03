@@ -20,7 +20,7 @@ class CreateQuestionsTable extends Migration
             $table->text('option_C')->nullable(false);
             $table->text('option_D')->nullable(false);
             $table->string('answer')->nullable(false);
-            $table->string('category')->nullable(false);
+            $table->string('category')->nullable(false)->index();
             $table->integer('user_id')->unsigned();
             $table->integer('difficulty_rating')->nullable(false);
             $table->timestamps();

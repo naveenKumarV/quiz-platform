@@ -31,7 +31,7 @@ class QuestionRequest extends Request
             'option_D'          => 'required',
             'answer'            => 'required|alpha|max:1|min:1',
             'category'          => 'required|in:history,sports,science,literature,politics',
-            'difficulty_rating' => 'required|integer|between:1,4'
+            'difficulty_rating' => 'required|integer|between:1,5'
         ];
     }
 }

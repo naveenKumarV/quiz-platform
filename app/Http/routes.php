@@ -30,7 +30,17 @@ Route::filter('authenticated',function(){
 Route::get('auth/register',array(
     'before' => 'authenticated',
     'Auth\AuthController@getRegister'
-));['middleware'=>'guest','uses'=>
+));
 */
 Route::get('auth/register','Auth\AuthController@getRegister');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
+
+//Quiz designing routes
+/*
+Route::get('quiz/design','QuestionsController@index');
+Route::get('quiz/design/create','QuestionsController@create');
+Route::post('quiz/design','QuestionsController@store');
+Route::put('quiz/design/{id}','QuestionsController@update');
+Route::get('quiz/design/{id}/edit','QuestionsController@edit');
+*/
+Route::resource('quiz/design','QuestionsController');

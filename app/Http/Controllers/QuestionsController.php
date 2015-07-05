@@ -46,7 +46,10 @@ class QuestionsController extends Controller
     {
         $question = new Question($request->all());
         \Auth::user()->questions()->save($question);
-        return redirect('quiz/design');
+        return redirect('quiz/design')->with([
+            'heading' => 'SUCCESS',
+            'message' => 'You have successfully created the question'
+        ]);
     }
 
     /**
@@ -72,7 +75,11 @@ class QuestionsController extends Controller
         if($question->user_id == \Auth::id()) {
             return view('design.edit', compact('question'));
         }else {
-            return redirect('quiz/design');
+            return redirect('quiz/design')->with([
+                'heading' => 'Oops',
+                'message' => 'You are trying to access a restricted web page for which you
+                              have no access'
+            ]);
         }
     }
 
@@ -87,7 +94,10 @@ class QuestionsController extends Controller
     {
         $question = Question::findOrFail($id);
         $question->update($request->all());
-        return redirect('quiz/design');
+        return redirect('quiz/design')->with([
+            'heading' => 'SUCCESS',
+            'message' => 'You have successfully updated the question'
+        ]);
     }
 
     /**
@@ -98,6 +108,19 @@ class QuestionsController extends Controller
      */
     public function destroy($id)
     {
-
+        $question = Question::findOrFail($id);
+        if($question->user_id == \Auth::id()) {
+            $question->delete();
+            return redirect('quiz/design')->with([
+                'heading' => 'SUCCESS',
+                'message' => 'You have successfully deleted the question'
+            ]);
+        }else{
+            return redirect('quiz/design')->with([
+                'heading' => 'Oops',
+                'message' => 'You are trying to access a restricted web page for which you
+                              have no access'
+            ]);
+        }
     }
 }

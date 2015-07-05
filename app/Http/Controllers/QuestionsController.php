@@ -69,7 +69,11 @@ class QuestionsController extends Controller
     public function edit($id)
     {
         $question = Question::findOrFail($id);
-        return view('design.edit',compact('question'));
+        if($question->user_id == \Auth::id()) {
+            return view('design.edit', compact('question'));
+        }else {
+            return redirect('quiz/design');
+        }
     }
 
     /**
@@ -94,6 +98,6 @@ class QuestionsController extends Controller
      */
     public function destroy($id)
     {
-            
+
     }
 }

@@ -1,0 +1,55 @@
+#bg {
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+}
+#bg img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    min-width: 50%;
+    min-height: 50%;
+    opacity: 1;
+}
+.container {
+    margin:35px auto;
+}
+h4{
+    margin-top: 0px;
+}
+.choice input {
+    display: none;
+}
+.choice {
+    border: 1px solid gray;
+    padding: 10px;
+    margin: 10px auto;
+    border-radius:8px;
+    -webkit-border-radius:8px;
+    -moz-border-radius:8px;
+    cursor: pointer;
+}
+.shadow{
+    box-shadow: 0 0 8px 1px  #c2c1c1 inset;
+}
+.shadow:hover{
+    background: linear-gradient(#d8d5d6,#f2f1f1,#f2f1f1,#f2f1f1,#d8d5d6);
+    box-shadow: 0 0 8px 1px  #c2c1c1 inset;
+}
+.active {
+    background-color: yellow;
+}
+#next{
+    display : none;
+    float   : right;
+}
+#response{
+    font-size: 1em;
+    color: #286090;
+}
+

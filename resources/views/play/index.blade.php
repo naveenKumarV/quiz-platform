@@ -9,11 +9,13 @@
 
 @section('content')
     @include('play.response')
-    <div id="bg">
-        <img src="{{ asset('images/bgs.jpg') }}" alt="">
-    </div>
 
-    <?php $submitted = false; ?>
+    @if($category != null)
+        <?php $image = 'images/'.$category.'.jpg' ?>
+        <div id="bg">
+            <img src="{{ asset($image) }}" alt="">
+        </div>
+    @endif
 
     <div class="container">
         <div class="row">
@@ -45,6 +47,10 @@
                                     <b>D. </b>{{ $question[0]['option_D'] }}
                                 </div>
                             </form>
+                            <strong>Difficulty level:</strong><br/>
+                            @for($i=1;$i<=$question[0]['difficulty_rating'];++$i)
+                                <img src="{{ asset('images/star.png') }}"/>
+                            @endfor
                             <div id="response"></div>
                         </div>
                         <div class="panel-footer" style="height:55px;">
@@ -53,10 +59,13 @@
                                 <span class="glyphicon glyphicon-menu-right"></span>
                             </a>
                         </div>
+                    @else
+                        <div style="padding:15px;">
+                            <b>Sorry ! We have no new questions.</b>
+                        </div>
                     @endif
                 </div>
             </div>
         </div>
     </div>
-
 @stop

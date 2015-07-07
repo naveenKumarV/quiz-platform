@@ -42,4 +42,14 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     {
         return $this->hasMany('App\Question');
     }
+
+    /**
+     * Get the questions answered by the user
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function answeredQuestions()
+    {
+        return $this->belongsToMany('App\Question','question_user')->withTimestamps();
+    }
 }

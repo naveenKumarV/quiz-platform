@@ -21,26 +21,21 @@ Route::post('auth/login', 'Auth\AuthController@postLogin');
 Route::get('auth/logout', 'Auth\AuthController@getLogout');
 
 // Registration routes...
-/*
-Route::filter('authenticated',function(){
-    if(!Auth::guest()){
-       return redirect('/');
-    }
-});
-Route::get('auth/register',array(
-    'before' => 'authenticated',
-    'Auth\AuthController@getRegister'
-));
-*/
 Route::get('auth/register','Auth\AuthController@getRegister');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
 
-//Quiz designing routes
-/*
-Route::get('quiz/design','QuestionsController@index');
-Route::get('quiz/design/create','QuestionsController@create');
-Route::post('quiz/design','QuestionsController@store');
-Route::put('quiz/design/{id}','QuestionsController@update');
-Route::get('quiz/design/{id}/edit','QuestionsController@edit');
-*/
+//Quiz design routes
 Route::resource('quiz/design','QuestionsController');
+
+//Quiz play routes
+Route::get('quiz/play/{category?}','PlayController@show');
+Route::post('quiz/play/{id}','PlayController@validateAnswer');
+
+//Scores routes
+Route::get('quiz/scores','PlayController@displayScores');
+Route::get('quiz/scores/user','PlayController@userScore');
+
+//Instructions route
+Route::get('quiz/instructions',function(){
+    return view('instructions');
+});

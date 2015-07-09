@@ -1,0 +1,90 @@
+body{
+    background: #b7df2d;
+    background: -moz-linear-gradient(top,  #b7df2d 0%, #e3f5ab 67%, #f8ffe8 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#b7df2d), color-stop(67%,#e3f5ab), color-stop(100%,#f8ffe8));
+    background: -webkit-linear-gradient(top,  #b7df2d 0%,#e3f5ab 67%,#f8ffe8 100%);
+    background: -o-linear-gradient(top,  #b7df2d 0%,#e3f5ab 67%,#f8ffe8 100%);
+    background: -ms-linear-gradient(top,  #b7df2d 0%,#e3f5ab 67%,#f8ffe8 100%);
+    background: linear-gradient(to bottom,  #b7df2d 0%,#e3f5ab 67%,#f8ffe8 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b7df2d', endColorstr='#f8ffe8',GradientType=0 );
+}
+#container{
+    width:80%;
+    margin:10px auto 30px auto;
+}
+img{
+    position:absolute;
+    top:0px;
+    width:100%;
+    margin:0px;
+}
+
+#wrapper{
+    border:1px solid #8a8787;
+    background-color: #f6f5f5;
+    position:relative;
+    paddin:0px;
+    margin-top:40px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+}
+.content{
+    font-family:'kurale','serif';
+    padding:30px;
+    font-size : 1.3em;
+    word-spacing:0.1em;
+}
+.content p{
+    margin-bottom:25px;
+}
+.header,.footer{
+    text-align: center;
+    background-color:#4a494b;
+    width:100%;
+}
+.header{
+    margin-top:-20px;
+}
+.footer{
+    margin-bottom:-10px;
+}
+.header h3{
+    height:auto;
+    color:#10d319;
+    padding:3% 0;
+    text-align:center;
+    font-family: 'Bree Serif', serif;
+    font-size:2em;
+    text-shadow:0 0 40px #26ec2f;
+    word-spacing:0.5em;
+}
+.footer-content{
+    color:#f1f0f2;
+    padding:1px;
+}
+.footer h3{
+    font-family: 'Bree Serif', serif;
+    color:#e91058;
+    font-size:1.7em;
+    text-decoration: underline;
+}
+
+@media only screen and (max-width:740px)
+{
+    img{
+        height:50%
+    }
+}
+@media only screen and (max-width:400px)
+{
+    img {
+        display:none;
+    }
+    .content{
+        font-size:1.1em;
+    }
+    .footer h3{
+        font-size:1.5em;
+    }
+}

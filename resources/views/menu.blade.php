@@ -26,8 +26,8 @@
             </li>
             <li class='last'><a href="{{ url('quiz/instructions') }}"><span>Instructions</span></a></li>
             @if(Auth::guest())
-                <li class="first right"><a href="{{ url('/auth/login') }}"><span>Log in</span></a></li>
-                <li class="right"><a href="{{ url('/auth/register') }}"><span class="glyphicon glyphicon-user"></span><span>Sign up</span></a></li>
+                <li class="right"><a href="{{ url('/auth/login') }}"><span>Log in</span></a></li>
+                <li class="first right"><a href="{{ url('/auth/register') }}"><span>Sign up</span></a></li>
             @else
                 <li class="first right"><a href="{{ url('/auth/logout') }}"><span>Log out</span></a></li>
             @endif

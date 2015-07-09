@@ -2,7 +2,8 @@
 @charset "UTF-8";
 /* Base Styles */
 #navigation{
-    margin : 20px;
+    margin: 20px auto;
+    width: 80%;
 }
 #cssmenu,
 #cssmenu ul,
@@ -45,7 +46,7 @@
     content: '';
     display: table;
 }
-@media all and (max-width: 490px) {
+@media all and (max-width: 570px) {
     #cssmenu > ul {
         max-height: 36px;
         overflow: hidden;
@@ -73,7 +74,7 @@
     background: -webkit-linear-gradient(#444444 0%, #323232 100%);
     background: linear-gradient(#444444 0%, #323232 100%);
 }
-@media all and (max-width: 490px) {
+@media all and (max-width: 570px) {
     #cssmenu > ul > li {
         border-right: 0 none;
         -moz-box-shadow: 0 0 0 transparent;
@@ -149,7 +150,7 @@
     width: 200px;
     z-index: 1;
 }
-@media all and (max-width: 490px) {
+@media all and (max-width: 570px) {
     #cssmenu ul ul {
         position: relative;
         top: 0;
@@ -176,7 +177,7 @@
 #cssmenu .first{
     border : none;
 }
-@media all and (max-width: 490px) {
+@media all and (max-width: 570px) {
     #cssmenu .right {
         float: left;
     }

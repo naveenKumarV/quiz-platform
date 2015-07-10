@@ -51,6 +51,8 @@
                             <li>Select the appropriate number of stars in the dfficulty rating.
                                 <b>Higher number of stars</b> correspond to <b>higher
                                 difficulty rating</b>.</li>
+                            <li>You <b>cannot submit</b> the same question <b>more than one time</b>
+                                even if the <b>options are different</b>.</li>
                             <li>You have the provision to see all your previously submitted questions.
                                 Each question is also provided with options for <b>editing</b>
                                 and <b>deleting.</b></li>

@@ -45,7 +45,7 @@ DB_USERNAME=root
 DB_PASSWORD=''
 
 (The default password is empty. So the two single quotation marks mean empty)
-Here ###quiz### is the name of the database (you can give any other name as you like).
+Here 'quiz' is the name of the database (you can give any other name as you like).
 DB_USERNAME and DB_PASSWORD are the environmental variables which represent your database username and password respectively. Generally, the values which I have given above automatically hold true in your case too since these are  default for xampp server. If you have some other username and password, please change these environmental variables accordingly.
 
 * run the command
@@ -54,7 +54,7 @@ php artisan key:generate
 
 This command automatically sets the environment variable APP_KEY
 
-* (For xampp users) Create a new database with name ###quiz### ie, the same name which you gave to DB_DATABASE in the .env file. You can do so through the phpMyAdmin tool in your server.To go the phpMyAdmin page, type the below url in the browser. 
+* (For xampp users) Create a new database with name 'quiz' ie, the same name which you gave to DB_DATABASE in the .env file. You can do so through the phpMyAdmin tool in your server.To go the phpMyAdmin page, type the below url in the browser. 
 
 localhost/phpmyadmin
 
@@ -68,7 +68,7 @@ This command creates all the necessary tables in the database.
 
 Now there are two ways in which you can run the project.
 
-###Method 1: Using laravel development server####
+###Method 1: Using laravel development server
 * In the terminal or command prompt , change the path to the project location and type the command
 
 php artisan serve
@@ -98,7 +98,7 @@ Eg2.If 8888 port is running fine, then url will be
 
 localhost:8888
 
-###Method 2 Using xampp web server###(For xampp users)
+###Method 2 Using xampp web server (For xampp users)
 * If you followed my earlier instruction of placing the project in the htdocs sub-directory within the xampp installation directory, then you are almost ready.
 
 * To run the project, go to your browser and type the url
@@ -108,3 +108,104 @@ localhost/{folder-path}/{folder-name}/public/
 Here {folder-path} is the path where you placed this project in your server and {folder-name} is the name you gave to this project folder. If you placed it in htdocs directory and named it quiz-platform, then the homepage url is 
 
 localhost/quiz-platform/public/
+
+##Tables
+1.'users' table :
+
+Stores the information of registered users of this website.
+  
+2. 'questions' table:
+ 
+This table stores the questions submitted by the user and the id of the user who submitted the question (foreign key).
+
+3. 'question_user' table:
+
+This is a pivot table which establishes the  many to many relationship between the website users and their answered questions.
+
+The remaining 'migrations' table and 'password_resets' table are both created by in-built migrations in laravel.
+
+##Modules used
+1.[Bootstrap](http://getbootstrap.com/) :
+For responsive web design
+
+2.[jquery](http://jquery.com/):
+For making animations and referring DOM elements easier.
+
+3.[jquery.autosize.js](http://www.jacklmoore.com/autosize)
+
+jQuery plugin for auto-sizing the textarea field in forms.
+
+4.[dataTables](http://www.datatables.net/)
+
+DataTables is a table plug-in for the jQuery Javascript library. It is a highly flexible tool, based upon the foundations of progressive enhancement, and will add advanced interaction controls to any HTML table.
+
+5.[jquery.popconfirm.js](http://ifnot.github.io/PopConfirm/)
+
+jQuery plugin for displaying a pop up confirmation message upon clicking a button.
+
+##Server routes
+* '/'
+
+home page
+* 'auth/login'
+
+Log in page for registered users
+* 'auth/register'
+
+Registration page
+* 'auth/logout'
+
+To log out authenticated user
+* 'quiz/design'
+
+Displays all the questions previously submitted by the authenticated user with options for editing and deleting.
+* 'quiz/design/create'
+
+* 'quiz/design/{design}/edit'
+
+* 'quiz/play'
+
+Displays quiz questions from all categories for the user to answer.
+
+* 'quiz/play/{category}'
+
+Displays questions from a specific category.Here, the category must be one among history, sports, literature, science and politics.
+
+* 'quiz/scores'
+
+* 'quiz/scores/user'
+
+**Note**:
+Please run this project only with internet access because I didn't include the bootstrap and jQuery files in the project.
+I'm have used them only through CDN to improve the performance of the web app. So please don't run this project when your computer is disconnected from internet.
+
+##Screenshots
+![welcome page](/screenshots/welcome.png)
+
+![login page](/screenshots/login.png)
+
+![registration page](/screenshots/register.png)
+
+![all categories questions page](/screenshots/all.png)
+
+![history questions page](/screenshots/history.png)
+
+![politics questions page](/screenshots/politics.png)
+
+![literature questions page](/screenshots/literature.png)
+
+![science questions page](/screenshots/science.png)
+
+![sports questions page](/screenshots/sports.png)
+
+![create question page](/screenshots/create.png)
+
+![update question page](/screenshots/update.png)
+
+![leaderboard page](/screenshots/leaderboard.png)
+
+![myscore](/screenshots/myscore.png)
+
+![instructions page](/screenshots/instructions.png)
+
+![index](/screenshots/index.png)

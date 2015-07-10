@@ -18,6 +18,13 @@ class PlayController extends Controller
         $this->middleware('auth');
     }
 
+    /**
+     * Displays appropriate question to the user
+     *
+     * @param null $category
+     * @return \Illuminate\Http\RedirectResponse|
+     * \Illuminate\Routing\Redirector|\Illuminate\View\View
+     */
     public function show($category=null)
     {
         $id = \Auth::id();
@@ -38,16 +45,24 @@ class PlayController extends Controller
             \Session::flash('message','You are trying to access a wrong category');
             return redirect('/');
         }
-        return view('play.index',compact('question'));
+        return view('play.index',compact('question','category'));
     }
 
+    /**
+     * Validates the answer
+     *
+     * @param Request $request
+     * @param $id
+     * @return mixed
+     */
     public function validateAnswer(Request $request,$id)
     {
         $this->validate($request,['answer'=>'required|in:A,B,C,D']);
         $answer = $request->answer ;
-        $data =[];
+        $data = [];
         $question = Question::find($id);
-        if(!\Auth::user()->answeredQuestions->contains($question->id)) {
+        if (!\Auth::user()->answeredQuestions->contains($question->id)) {
+            $data['answered'] = false;
             \Auth::user()->answeredQuestions()->attach($question->id);
             $data['answer'] = $question->answer;
             if ($question->answer == $answer) {
@@ -57,8 +72,34 @@ class PlayController extends Controller
                 $data['score'] = \Auth::user()->score -= 1;
             }
             \Auth::user()->save();
+        }else{
+            $data['answered'] = true;
         }
         return  \Response::json($data);
+    }
+
+    /**
+     * Gets the user score
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function userScore()
+    {
+        return redirect('/')->with([
+            'heading' => 'Hi '.\Auth::user()->name,
+            'message' => 'Your score is '.\Auth::user()->score
+            ]);
+    }
+
+    /**
+     * Gives the scores of all users
+     *
+     * @return \Illuminate\View\View
+     */
+    public function displayScores()
+    {
+        $scores = User::all(['username','score']);
+        return view('leaderboard',compact('scores'));
     }
 }
 

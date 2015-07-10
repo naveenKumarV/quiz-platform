@@ -8,13 +8,18 @@ use App\Question;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\QuestionRequest;
+use Illuminate\Support\Facades\Auth;
 
 class QuestionsController extends Controller
 {
+    /**
+     * Constructor
+     */
     public function __construct()
     {
         $this->middleware('auth');
     }
+
     /**
      * Display a listing of the resource.
      *
@@ -44,12 +49,29 @@ class QuestionsController extends Controller
      */
     public function store(QuestionRequest $request)
     {
-        $question = new Question($request->all());
-        \Auth::user()->questions()->save($question);
-        return redirect('quiz/design')->with([
-            'heading' => 'SUCCESS',
-            'message' => 'You have successfully created the question'
-        ]);
+        \DB::statement("SET SESSION time_zone = '+00:00'");
+        $options = [$request->option_A,$request->option_B,
+                    $request->option_C,$request->option_D];
+        if(count(array_unique($options)) == 4) {
+            $previous_questions = Auth::user()->questions->pluck('question')->toArray();
+            if(!in_array($request->question,$previous_questions)) {
+                $question = new Question($request->all());
+                \Auth::user()->questions()->save($question);
+                \Session::flash('heading', 'SUCCESS');
+                \Session::flash('message', 'You have successfully created the question');
+                return redirect('quiz/design');
+            }else{
+                return redirect('quiz/design/create')->with([
+                    'heading' => 'ERROR',
+                    'message' => 'You have already submitted this question before'
+                ]);
+            }
+        }else{
+            return redirect('quiz/design/create')->withInput()->with([
+                'heading' => 'ERROR',
+                'message' => 'All four options must be different'
+            ]);
+        }
     }
 
     /**
@@ -92,12 +114,30 @@ class QuestionsController extends Controller
      */
     public function update($id,QuestionRequest $request)
     {
-        $question = Question::findOrFail($id);
-        $question->update($request->all());
-        return redirect('quiz/design')->with([
-            'heading' => 'SUCCESS',
-            'message' => 'You have successfully updated the question'
-        ]);
+        \DB::statement("SET SESSION time_zone = '+00:00'");
+        $options = [$request->option_A,$request->option_B,
+                    $request->option_C,$request->option_D];
+        if(count(array_unique($options)) == 4) {
+            $previous_questions = Auth::user()->questions->pluck('question')->toArray();
+            if(!in_array($request->question,$previous_questions)) {
+                $question = Question::findOrFail($id);
+                $question->update($request->all());
+                return redirect('quiz/design')->with([
+                    'heading' => 'SUCCESS',
+                    'message' => 'You have successfully updated the question'
+                ]);
+            }else{
+                return redirect('quiz/design/create')->with([
+                    'heading' => 'ERROR',
+                    'message' => 'You have already submitted this question before'
+                ]);
+            }
+        }else{
+            return redirect('quiz/design/'.$id.'/edit')->withInput()->with([
+                'heading' => 'ERROR',
+                'message' => 'All four options must be different'
+            ]);
+        }
     }
 
     /**

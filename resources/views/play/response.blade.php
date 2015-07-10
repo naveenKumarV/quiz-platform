@@ -19,21 +19,25 @@
         function onSuccess(data, status, xhr)
         {
             $("#post").fadeOut();
-            $("#"+data.answer).attr({
-                'class' : 'choice btn-success'
-            });
-            if (data.correct == true) {
-                var text = "You have chosen the right option.";
-            } else {
-                var text = "Alas! You choosen the wrong option." +
-                        " The correct option is " + data.answer;
-                var chosen = $('input[type=radio]:checked').val();
-                $("#"+chosen).attr('class','choice btn-danger');
+            if(!data.answered) {
+                $("#" + data.answer).attr({
+                    'class': 'choice btn-success'
+                });
+                if (data.correct == true) {
+                    var text = "You have chosen the right option.<br/>";
+                } else {
+                    var text = "Alas! You chosen the wrong option." +
+                            " The correct option is " + "<b>" + data.answer + "</b>" + ".<br/>";
+                    var chosen = $('input[type=radio]:checked').val();
+                    $("#" + chosen).attr('class', 'choice btn-danger');
+                }
+                text += "Your score is " + "<b>" + data.score + "</b>";
+
+            }else{
+                var text = "You have already answered this question.";
             }
-            text += "Your score is " + data.score;
-            $("#response").text(text);
+            $("#response").html(text);
             $("#next").fadeIn(2000);
-            console.log(data, status, xhr,xhr.status);
         }
         $('#post').on('click', onPostClick);
 

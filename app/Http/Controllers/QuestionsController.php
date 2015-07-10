@@ -118,16 +118,19 @@ class QuestionsController extends Controller
         $options = [$request->option_A,$request->option_B,
                     $request->option_C,$request->option_D];
         if(count(array_unique($options)) == 4) {
+            $question = Question::findOrFail($id);
             $previous_questions = Auth::user()->questions->pluck('question')->toArray();
+            if (($key = array_search($question->question,$previous_questions)) !== false) {
+                unset($previous_questions[$key]);
+            }
             if(!in_array($request->question,$previous_questions)) {
-                $question = Question::findOrFail($id);
                 $question->update($request->all());
                 return redirect('quiz/design')->with([
                     'heading' => 'SUCCESS',
                     'message' => 'You have successfully updated the question'
                 ]);
             }else{
-                return redirect('quiz/design/create')->with([
+                return redirect('quiz/design')->with([
                     'heading' => 'ERROR',
                     'message' => 'You have already submitted this question before'
                 ]);

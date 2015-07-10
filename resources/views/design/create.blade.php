@@ -6,11 +6,16 @@
     <script>
        $(document).ready(function() {
            $('textarea').autosize();
+           $('#submit').click(function(){
+               if(!$('input[name="answer"]').is(':checked'))
+                   alert('Please specify the correct answer');
+           });
        });
     </script>
 @stop
 
 @section('content')
+    @include('menu')
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">

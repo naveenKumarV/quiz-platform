@@ -40,12 +40,27 @@ class Question extends Model
         return $this->belongsToMany('App\User','question_user')->withTimestamps();
     }
 
+    /**
+     * Query scope for excluding the given columns for the requested model
+     *
+     * @param $query
+     * @param array $value
+     * @return mixed
+     */
     public function scopeExclude($query,$value = array())
     {
         $columns = array_merge(['id'],$this->fillable);
         return $query->select( array_diff( $columns,(array) $value) );
     }
 
+    /**
+     * Query scope for selecting eligible questions
+     *
+     * @param $query
+     * @param $id
+     * @param $question
+     * @return mixed
+     */
     public function scopeEligible($query,$id,$question)
     {
         return $query->where('user_id','!=',$id)

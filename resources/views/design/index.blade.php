@@ -18,9 +18,14 @@
 
 @section('content')
     <script>j=0;</script>
-    <div class="container" style="margin: 20px auto;">
+    @include('menu')
+    <div class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
+                <div style="margin:10px;text-align: center;">
+                    <b>Here are your previously submitted questions.</b>
+                </div>
+                @if(count($questions))
                 @foreach($questions as $question)
                     <div class="panel panel-info">
                         <div class="panel-heading">
@@ -69,6 +74,9 @@
                         </div>
                     </div>
                 @endforeach
+                @else
+                    <div style="text-align: center;color:red;">No questions created yet.</div>
+                @endif
             </div>
         </div>
     </div>

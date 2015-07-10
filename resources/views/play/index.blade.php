@@ -4,6 +4,15 @@
 @section('header')
     <meta name="csrf-token" content="<?php echo csrf_token() ?>" />
     <link rel="stylesheet" type="text/css" href="{{ asset('css/play.css') }}"/>
+    <style>
+        .effect {
+            position:relative;
+            padding:15px;
+            -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+            -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+            box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+        }
+    </style>
 @stop
 
 
@@ -12,11 +21,11 @@
 
     @if($category != null)
         <?php $image = 'images/'.$category.'.jpg' ?>
-        <div id="bg">
+        <div id="bg" class="overlay">
             <img src="{{ asset($image) }}" alt="">
         </div>
     @endif
-
+    @include('menu')
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
@@ -32,19 +41,19 @@
                                   method="POST">
                                 <div class="choice shadow" id="A">
                                     {!! Form::radio('answer','A') !!}
-                                    <b>A. </b> {{ $question[0]['option_A'] }}
+                                    A. {{ $question[0]['option_A'] }}
                                 </div>
                                 <div class="choice shadow" id="B">
                                     {!! Form::radio('answer','B') !!}
-                                    <b>B. </b>{{ $question[0]['option_B'] }}
+                                    B. {{ $question[0]['option_B'] }}
                                 </div>
                                 <div class="choice shadow" id="C">
                                     {!! Form::radio('answer','C') !!}
-                                    <b>C. </b>{{ $question[0]['option_C'] }}
+                                    C. {{ $question[0]['option_C'] }}
                                 </div>
                                 <div class="choice shadow" id="D">
                                     {!! Form::radio('answer','D') !!}
-                                    <b>D. </b>{{ $question[0]['option_D'] }}
+                                    D. {{ $question[0]['option_D'] }}
                                 </div>
                             </form>
                             <strong>Difficulty level:</strong><br/>
@@ -60,7 +69,7 @@
                             </a>
                         </div>
                     @else
-                        <div style="padding:15px;">
+                        <div class="effect">
                             <b>Sorry ! We have no new questions.</b>
                         </div>
                     @endif

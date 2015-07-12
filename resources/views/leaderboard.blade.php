@@ -17,6 +17,7 @@
         <table id="table_id" class="display">
             <thead>
                 <tr>
+                    <th>Rank</th>
                     <th>Username</th>
                     <th>Score</th>
                 </tr>
@@ -24,8 +25,9 @@
             <tbody>
                 @foreach($scores as $score)
                     <tr>
-                        <td>{{ $score->username }}</td>
-                        <td>{{ $score->score }}</td>
+                        <td>{{ $score['rank'] }}</td>
+                        <td>{{ $score['username'] }}</td>
+                        <td>{{ $score['score'] }}</td>
                     </tr>
                 @endforeach
             </tbody>
@@ -33,7 +35,7 @@
         <div id="content">
             <h3>Usage: </h3>
             <ul>
-                <li class="left"> The arrow marks beside 'Username' and 'Score' are for arranging the table rows
+                <li class="left"> The arrow marks beside <b>Rank</b>, <b>Username</b> and <b>Score</b> are for arranging the table rows
                     based on the particular column values in either ascending and descending fashion.
                     Play with these arrows by clicking each one of them and find their usage yourself.</li>
                 <li class="left">The other features like search, pagination etc are also interesting and user-friendly.</li>

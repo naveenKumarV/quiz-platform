@@ -2,20 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e953603f-42ab-4816-a205-47bf332c8622" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/auth.css" />
-      <change type="DELETED" beforePath="C:\xampp\htdocs\quiz-platform\public\images\flowers.jpg" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/PlayController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/PlayController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/auth/container.blade.php" afterPath="$PROJECT_DIR$/resources/views/auth/container.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/design/create.blade.php" afterPath="$PROJECT_DIR$/resources/views/design/create.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/design/edit.blade.php" afterPath="$PROJECT_DIR$/resources/views/design/edit.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/design/form.blade.php" afterPath="$PROJECT_DIR$/resources/views/design/form.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/leaderboard.blade.php" afterPath="$PROJECT_DIR$/resources/views/leaderboard.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/leaderboard.css" afterPath="$PROJECT_DIR$/public/css/leaderboard.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/welcome.css" afterPath="$PROJECT_DIR$/public/css/welcome.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="quiz-platform.iws" />
     <ignored path=".idea/workspace.xml" />

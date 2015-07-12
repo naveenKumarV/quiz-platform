@@ -1,0 +1,21 @@
+h1 {
+    font-size: 1.7em;
+    color: rgb(6, 106, 117);
+    font-family: 'Oswald', sans-serif;
+    font-weight: bold;
+    text-align: center;
+}
+.inner-addon {
+    position: relative;
+}
+.inner-addon .glyphicon {
+    position: absolute;
+    padding: 10px;
+    pointer-events: none;
+}
+.left-addon .glyphicon {
+    left:  0px;
+}
+.left-addon input  {
+    padding-left:  30px;
+}

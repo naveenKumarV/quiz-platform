@@ -2,15 +2,7 @@
 
 @section('header')
     <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
-    <style>
-        h1 {
-            font-size: 1.7em;
-            color: rgb(6, 106, 117);
-            font-family: 'Oswald', sans-serif;
-            font-weight: bold;
-            text-align: center;
-        }
-    </style>
+    <link href="{{ asset('css/auth.css') }}" rel='stylesheet' type='text/css'>
 @stop
 
 @section('content')

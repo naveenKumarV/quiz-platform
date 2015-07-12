@@ -1,12 +1,6 @@
 body{
-    background: #b7df2d;
-    background: -moz-linear-gradient(top,  #b7df2d 0%, #e3f5ab 67%, #f8ffe8 100%);
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#b7df2d), color-stop(67%,#e3f5ab), color-stop(100%,#f8ffe8));
-    background: -webkit-linear-gradient(top,  #b7df2d 0%,#e3f5ab 67%,#f8ffe8 100%);
-    background: -o-linear-gradient(top,  #b7df2d 0%,#e3f5ab 67%,#f8ffe8 100%);
-    background: -ms-linear-gradient(top,  #b7df2d 0%,#e3f5ab 67%,#f8ffe8 100%);
-    background: linear-gradient(to bottom,  #b7df2d 0%,#e3f5ab 67%,#f8ffe8 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b7df2d', endColorstr='#f8ffe8',GradientType=0 );
+    width:100%;
+    background-image: url('../images/bg.png');
 }
 #container{
     width:80%;

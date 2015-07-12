@@ -7,7 +7,6 @@
 @stop
 
 @section('content')
-    <img src="{{ asset('images/flowers.jpg') }}" />
     @include('menu')
     <div id="container">
         <div id="wrapper">

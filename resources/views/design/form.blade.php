@@ -1,10 +1,12 @@
 <div class="form-group">
-    <label>Category of the question:</label><br/>
-    <label class="radio-inline">{!!Form::radio('category','history',false,['required'=>'required'])!!}History</label>
-    <label class="radio-inline">{!!Form::radio('category','politics',false,['required'=>'required'])!!}Politics</label>
-    <label class="radio-inline">{!!Form::radio('category','sports',false,['required'=>'required'])!!}Sports</label>
-    <label class="radio-inline">{!!Form::radio('category','science',false,['required'=>'required'])!!}Science</label>
-    <label class="radio-inline">{!!Form::radio('category','literature',false,['required'=>'required'])!!}Literature</label>
+    <label>Category: </label><br/>
+    <select name="category" id="category"  required="required">
+        <option value="history">History</option>
+        <option value="politics">Politics</option>
+        <option value="sports">Sports</option>
+        <option value="science">Science</option>
+        <option value="literature">Literature</option>
+    </select>
 </div>
 <div class="form-group">
     {!! Form::label('question','Question') !!}

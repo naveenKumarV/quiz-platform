@@ -2,10 +2,13 @@
 
 @section('header')
     <link rel="stylesheet" type="text/css" href="{{ asset('css/design_form.css') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/dropkick.css') }}" />
     <script src="{{ asset('js/jquery.autosize.js') }}"></script>
+    <script src="{{ asset('js/dropkick.min.js') }}"></script>
     <script>
        $(document).ready(function() {
            $('textarea').autosize();
+           $('#category').dropkick();
            $('#submit').click(function(){
                if(!$('input[name="answer"]').is(':checked'))
                    alert('Please specify the correct answer');

@@ -98,7 +98,15 @@ class PlayController extends Controller
      */
     public function displayScores()
     {
-        $scores = User::all(['username','score']);
+        $scores = User::orderBy('score','desc')->get(['username','score'])->toArray();
+        for($i=0,$j=0;$i<count($scores);++$i)
+        {
+            if($i!=0 && $scores[$i-1]['score']==$scores[$i]['score']) {
+                $scores[$i]['rank'] = $j;
+            }else{
+                $scores[$i]['rank'] = ++$j;
+            }
+        }
         return view('leaderboard',compact('scores'));
     }
 }

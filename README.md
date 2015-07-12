@@ -18,7 +18,7 @@ This website is basically a quiz platform where you can create quiz questions an
 
 * In the command prompt, navigate to the project directory and type the command
 
-composer update
+composer install
 
 The composer will automatically download the entire laravel framework and the php dependencies used in this project. You need not manually download any of them. If you get any error, first check whether your composer is properly installed by running the command
 
@@ -48,7 +48,7 @@ DB_PASSWORD=''
 Here 'quiz' is the name of the database (you can give any other name as you like).
 DB_USERNAME and DB_PASSWORD are the environmental variables which represent your database username and password respectively. Generally, the values which I have given above automatically hold true in your case too since these are  default for xampp server. If you have some other username and password, please change these environmental variables accordingly.
 
-* run the command
+* In the cmd or terminal, change the path to the project folder and run the command
 
 php artisan key:generate
 
@@ -58,7 +58,7 @@ This command automatically sets the environment variable APP_KEY
 
 localhost/phpmyadmin
 
-* run the command 
+* In cmd or terminal, run the command 
 
 php artisan migrate 
 
@@ -90,11 +90,11 @@ localhost:{port-number}
 
 Here {port-number} means the port in which the Laravel development server is launched.
 
-Eg1.If 8000 port is running fine for you, then the url will be 
+Eg1.If 8000 port is running fine for you, then the home page url in browser will be 
 
 localhost:8000
 
-Eg2.If 8888 port is running fine, then url will be
+Eg2.If 8888 port is running fine, then home page url in browser will be
 
 localhost:8888
 
@@ -108,6 +108,8 @@ localhost/{folder-path}/{folder-name}/public/
 Here {folder-path} is the path where you placed this project in your server and {folder-name} is the name you gave to this project folder. If you placed it in htdocs directory and named it quiz-platform, then the homepage url is 
 
 localhost/quiz-platform/public/
+
+
 
 ##Tables
 1.'users' table :
@@ -143,25 +145,38 @@ DataTables is a table plug-in for the jQuery Javascript library. It is a highly 
 
 jQuery plugin for displaying a pop up confirmation message upon clicking a button.
 
+6.[select box plugin](https://github.com/Robdel12/DropKick)
+
+jQuery plugin for stylish select box
+
 ##Server routes
 * '/'
 
 home page
+
 * 'auth/login'
 
 Log in page for registered users
+
 * 'auth/register'
 
 Registration page
+
 * 'auth/logout'
 
 To log out authenticated user
+
 * 'quiz/design'
 
 Displays all the questions previously submitted by the authenticated user with options for editing and deleting.
+
 * 'quiz/design/create'
 
+Displays form for submitting a question.
+
 * 'quiz/design/{design}/edit'
+
+Displays form for editing a submitted question. Here, {design} is the id of the question to be edited.
 
 * 'quiz/play'
 
@@ -173,11 +188,35 @@ Displays questions from a specific category.Here, the category must be one among
 
 * 'quiz/scores'
 
+Displays scores of all registered users in the form of a sortable table.
+
 * 'quiz/scores/user'
 
-**Note**:
-Please run this project only with internet access because I didn't include the bootstrap and jQuery files in the project.
-I'm have used them only through CDN to improve the performance of the web app. So please don't run this project when your computer is disconnected from internet.
+Displays the score of authenticated user.
+
+**Eg.**  If you are accessing the 'quiz/design/create' route, the url in the browser will be
+
+* if you are following method 1, then
+
+localhost:8888/quiz/design/create
+
+here 8888 is port number
+
+* if you are following method 2, then
+
+localhost/{project-path}/{project-name}/public/quiz/design/create
+
+***Note 1***:
+
+In case, if you are following method 2 of running the project, don't append the url with '/' unless you are accessing the home page.
+
+***Note 2:***
+
+For HOMESTEAD users, if you face any difficulty in setting up the project, please check the laravel documentation or search in the web. I am completely unaware of any possible installation errors if you are using HOMESTEAD.
+
+**Note 3:**
+
+If you are following method 1 of running the project, to stop the laravel development server, in cmd, press Ctrl+c
 
 ##Screenshots
 ![welcome page](/screenshots/welcome.png)

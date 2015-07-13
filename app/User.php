@@ -50,6 +50,8 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
      */
     public function answeredQuestions()
     {
-        return $this->belongsToMany('App\Question','question_user')->withTimestamps();
+        return $this->belongsToMany('App\Question','question_user')
+                    ->withPivot('user_response')
+                    ->withTimestamps();
     }
 }

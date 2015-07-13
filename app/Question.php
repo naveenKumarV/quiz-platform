@@ -37,7 +37,9 @@ class Question extends Model
      */
     public function answeredByUsers()
     {
-        return $this->belongsToMany('App\User','question_user')->withTimestamps();
+        return $this->belongsToMany('App\User','question_user')
+                    ->withPivot('user_response')
+                    ->withTimestamps();
     }
 
     /**

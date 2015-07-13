@@ -31,6 +31,9 @@ Route::resource('quiz/design','QuestionsController');
 Route::get('quiz/play/{category?}','PlayController@show');
 Route::post('quiz/play/{id}','PlayController@validateAnswer');
 
+//Answered questions
+Route::get('quiz/answered','PlayController@answered');
+
 //Scores routes
 Route::get('quiz/scores','PlayController@displayScores');
 Route::get('quiz/scores/user','PlayController@userScore');
@@ -39,3 +42,4 @@ Route::get('quiz/scores/user','PlayController@userScore');
 Route::get('quiz/instructions',function(){
     return view('instructions');
 });
+

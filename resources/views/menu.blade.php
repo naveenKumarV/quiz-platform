@@ -15,7 +15,8 @@
                     <li><a href="{{ url('quiz/play/sports') }}"><span>Sports</span></a></li>
                     <li><a href="{{ url('quiz/play/literature') }}"><span>Literature</span></a></li>
                     <li><a href="{{ url('quiz/play/politics') }}"><span>Politics</span></a></li>
-                    <li class='last'><a href="{{ url('quiz/play/science') }}"><span>Science</span></a></li>
+                    <li><a href="{{ url('quiz/play/science') }}"><span>Politics</span></a></li>
+                    <li class='last'><a href="{{ url('quiz/answered') }}"><span>Show previously answered questions</span></a></li>
                 </ul>
             </li>
             <li class='has-sub'><a href="#"><span>Design Quiz</span></a>

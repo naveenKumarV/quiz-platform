@@ -32,7 +32,7 @@
                             <div style="margin-bottom: 10px;">
                             <strong>Category:</strong> {{ $question['category'] }}<br/>
                             </div>
-                            <a href="">{{ $question['question'] }}</a>
+                            {{ $question['question'] }}
                         </div>
                         <div class="panel-body">
                             <table width="100%">

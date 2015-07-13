@@ -1,12 +1,9 @@
 <div class="form-group">
     <label>Category: </label><br/>
-    <select name="category" id="category"  required="required">
-        <option value="history">History</option>
-        <option value="politics">Politics</option>
-        <option value="sports">Sports</option>
-        <option value="science">Science</option>
-        <option value="literature">Literature</option>
-    </select>
+    {!! Form::select("category",["history"=>"History","politics"=>"Politics",
+    "sports"=>"Sports","science"=>"Science",
+    "literature"=>"Literature"],
+    null,["id"=>"category","required"=>"required"]) !!}
 </div>
 <div class="form-group">
     {!! Form::label('question','Question') !!}

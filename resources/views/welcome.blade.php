@@ -28,7 +28,9 @@
                 deleting. To create a new question, click <b>'Create a new question'</b> in the same dropdown menu.</p>
                 <p>You can check the leaderboard containing the scores of all users of this website by
                 clicking the <b>'Scores'</b> tab and selecting <b>'Show scores of all users'</b>. Also, you can
-                check your score alone by clicking <b>'Show my score alone'</b> in the <b>'Scores'</b> tab.</p>
+                check your score alone by clicking <b>'Show my score alone'</b> in the <b>'Scores'</b> tab.
+                You can check your previously answered questions and also find out the mistakes you have made
+                by clicking 'Show previously answered questions' in 'Play Quiz' tab.</p>
             </div>
             <div class="footer">
                 <div class="footer-content">

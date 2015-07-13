@@ -6,16 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Spider Web Dev Task 3</title>
     <link rel="shortcut icon" href="{{ asset('images/favicon.png') }}" />
-    {{--
-        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    --}}
-
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
     <script src="{{ asset('js/jquery-1.11.3.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
-
     <link rel="stylesheet" type="text/css" href="{{ asset('css/menu.css') }}"/>
     <script src="{{ asset('js/menu.js') }}"></script>
     @yield('header')

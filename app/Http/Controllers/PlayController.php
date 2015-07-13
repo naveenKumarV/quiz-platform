@@ -63,8 +63,9 @@ class PlayController extends Controller
         $question = Question::find($id);
         if (!\Auth::user()->answeredQuestions->contains($question->id)) {
             $data['answered'] = false;
-            \Auth::user()->answeredQuestions()->attach($question->id);
+            \Auth::user()->answeredQuestions()->attach($question->id,array('user_response'=>$answer));
             $data['answer'] = $question->answer;
+
             if ($question->answer == $answer) {
                 $data['correct'] = true;
                 $data['score'] = \Auth::user()->score += $question->difficulty_rating;
@@ -108,6 +109,17 @@ class PlayController extends Controller
             }
         }
         return view('leaderboard',compact('scores'));
+    }
+
+    /**
+     * Get answered questions of the authenticated users
+     *
+     * @return \Illuminate\View\View
+     */
+    public function answered()
+    {
+        $answered_questions = \Auth::user()->answeredQuestions()->get()->toArray();
+        return view('play.answered',compact('answered_questions'));
     }
 }
 

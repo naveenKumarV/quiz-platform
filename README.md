@@ -116,11 +116,11 @@ localhost/quiz-platform/public/
 
 Stores the information of registered users of this website.
   
-2. 'questions' table:
+2.'questions' table:
  
 This table stores the questions submitted by the user and the id of the user who submitted the question (foreign key).
 
-3. 'question_user' table:
+3.'question_user' table:
 
 This is a pivot table which establishes the  many to many relationship between the website users and their answered questions.
 

@@ -63,7 +63,12 @@ class PlayController extends Controller
         $question = Question::find($id);
         if (!\Auth::user()->answeredQuestions->contains($question->id)) {
             $data['answered'] = false;
-            \Auth::user()->answeredQuestions()->attach($question->id,array('user_response'=>$answer));
+            $user_response = 'option_'.$answer;
+            $correct_answer = 'option_'.$question->answer;
+            \Auth::user()->answeredQuestions()->
+            attach($question->id,array('user_response'=>$question->$user_response,
+                                        'answer'=>$question->$correct_answer,
+                                        'question'=>$question->question));
             $data['answer'] = $question->answer;
 
             if ($question->answer == $answer) {

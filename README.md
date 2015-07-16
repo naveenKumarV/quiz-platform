@@ -194,6 +194,10 @@ Displays scores of all registered users in the form of a sortable table.
 
 Displays the score of authenticated user.
 
+* 'quiz/answered'
+
+Displays the questions answered by the user.
+
 **Eg.**  If you are accessing the 'quiz/design/create' route, the url in the browser will be
 
 * if you are following method 1, then
@@ -248,3 +252,5 @@ If you are following method 1 of running the project, to stop the laravel develo
 ![instructions page](/screenshots/instructions.png)
 
 ![index](/screenshots/index.png)
+
+![answered questions](/screenshots/answered.png)
